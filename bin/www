@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+
+/**
+ * Load Module Dependencies
+ */
+
+const http     = require('http');
+
+const debug       = require('debug')('api:server');
+
+const config       = require('../config');
+const db           = require('../db');
+const app          = require('../app');
+
+const PORT  = config.PORT;
+
+//-- Create HTTP Server --//
+
+let server = http.createServer(app.callback());
+
+db.sequelize.sync()
+  .then(()=> {
+    // Listen on provided port, on all network interfaces
+    server.listen(PORT);
+
+    // Set Error Handler for the server
+    server.on('error', (error) => {
+      debug('Server ConnectionError Triggered');
+
+      if (error.syscall !== 'listen') {
+        throw error;
+      }
+
+      let bind = (typeof PORT === 'string') ? `Pipe ${PORT}` : `Port ${PORT}`;
+
+      // Handle Specific listen errors with friendly messages.
+      switch(error.code) {
+        case 'EACCES':
+          console.error(`${bind} requires elevated privileges`);
+          process.exit(1);
+          break;
+        case 'EADDRINUSE':
+          console.error(`${bind} is already in use`);
+          process.exit(1);
+          break;
+        default:
+          throw error;
+      }
+    })
+
+    // Set handler for 'listening' event
+    server.on('listening', () => {
+      let addr = server.address();
+      let bind = (typeof PORT === 'string') ? `Pipe ${PORT}` : `Port ${PORT}`;
+
+      debug(`Listening on ${bind}`);
+
+  });
+
+});

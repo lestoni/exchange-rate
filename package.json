@@ -1,0 +1,54 @@
+{
+  "name": "Exchange-Rate-API",
+  "version": "1.0.0",
+  "description": "TaxFix Exchange Rate API Challenge",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test-unit && npm run test-integration",
+    "test-unit": "NODE_ENV=test ./node_modules/.bin/mocha test/unit/ --exit",
+    "test-integration": "NODE_ENV=test ./node_modules/.bin/mocha test/integration/ --exit --timeout 5000",
+    "docs": "./node_modules/.bin/apidoc --verbose -i routes/ -o docs",
+    "start": "node ./bin/www",
+    "start-dev": "DEBUG=api* nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Tony Mutai <tonnimutai@gmail.com>",
+  "license": "",
+  "bugs": {
+    "url": ""
+  },
+  "engines": {
+    "node": ">=8.9.4"
+  },
+  "dependencies": {
+    "co": "~4.6.0",
+    "cron": "^1.3.0",
+    "debug": "~3.1.0",
+    "koa": "~2.5.1",
+    "koa-body": "~4.0.1",
+    "koa-cors": "0.0.16",
+    "koa-logger": "~3.2.0",
+    "koa-router": "~7.4.0",
+    "koa-static": "~4.0.3",
+    "koa-validate": "~1.0.7",
+    "lodash": "~4.17.10",
+    "moment": "~2.22.2",
+    "node-fetch": "^2.1.2",
+    "pq": "0.0.3",
+    "sequelize": "^4.38.0",
+    "sqlite3": "^4.0.1",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "apidoc": "~0.17.5",
+    "chai": "~4.1.2",
+    "mocha": "~5.2.0",
+    "supertest": "~3.1.0"
+  }
+}
