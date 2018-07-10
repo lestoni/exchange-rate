@@ -14,25 +14,29 @@ const router  = new Router();
  * @apiName GetTransactionLogsCollection
  * @apiGroup TransactionLog
  *
- * @apiDescription Calcuate the equivalent exchange rate between currencies
+ * @apiDescription Get A Collection of Transaction Logs
  *
- * @apiParam {String} from_currency Currency Converting From
- * @apiParam {String} to_currency Currency Converting To
- * @apiParam {Number} amount Currency Amount
- *
- * @apiParamExample Request Example:
- *  {
- *    "from_currrency": "EUR",
- *    "to_currency": "USD",
- *    "amount": 100.0
- *  }
- *
- * @apiSuccess {Number} value Exchange Rate Value
+ * @apiSuccess {String} id Transaction Log Id
+ * @apiSuccess {String} from_currency Currency Converting From
+ * @apiSuccess {String} to_currency Currency Converting To
+ * @apiSuccess {Number} amount Currency Amount
+ * @apiSuccess {Number} equivalent Converted Currency Equivalent
+ * @apiSuccess {String} createdAt Created At Timestamp
+ * @apiSuccess {String} updatedAt Updated At Timestamp
  *
  * @apiSuccessExample Response Example:
- *  {
- *    "equivalent" : 129.00
- *  }
+ * [
+ *    {
+ *        "id": "3a8a1973-c724-431d-b464-07fd9d55ab4c",
+ *        "from_currency": "usd",
+ *        "to_currency": "EUR",
+ *        "amount": 65000,
+ *        "rate": 1.1724,
+ *        "equivalent": 55441.83,
+ *        "createdAt": "2018-07-08T12:43:44.398Z",
+ *        "updatedAt": "2018-07-08T12:43:44.398Z"
+ *    }
+ * ]
  *
  */
 router.get('/', transactionLogController.getCollection);
@@ -43,28 +47,30 @@ router.get('/', transactionLogController.getCollection);
  * @apiName GetTransactionLog
  * @apiGroup TransactionLog
  *
- * @apiDescription Calcuate the equivalent exchange rate between currencies
+ * @apiDescription Get A Transaction Log With the Given Id
  *
- * @apiParam {String} from_currency Currency Converting From
- * @apiParam {String} to_currency Currency Converting To
- * @apiParam {Number} amount Currency Amount
- *
- * @apiParamExample Request Example:
- *  {
- *    "from_currrency": "EUR",
- *    "to_currency": "USD",
- *    "amount": 100.0
- *  }
- *
- * @apiSuccess {Number} value Exchange Rate Value
+ * @apiSuccess {String} id Transaction Log Id
+ * @apiSuccess {String} from_currency Currency Converting From
+ * @apiSuccess {String} to_currency Currency Converting To
+ * @apiSuccess {Number} amount Currency Amount
+ * @apiSuccess {Number} equivalent Converted Currency Equivalent
+ * @apiSuccess {String} createdAt Created At Timestamp
+ * @apiSuccess {String} updatedAt Updated At Timestamp
  *
  * @apiSuccessExample Response Example:
- *  {
- *    "equivalent" : 129.00
- *  }
+ *    {
+ *        "id": "3a8a1973-c724-431d-b464-07fd9d55ab4c",
+ *        "from_currency": "usd",
+ *        "to_currency": "EUR",
+ *        "amount": 65000,
+ *        "rate": 1.1724,
+ *        "equivalent": 55441.83,
+ *        "createdAt": "2018-07-08T12:43:44.398Z",
+ *        "updatedAt": "2018-07-08T12:43:44.398Z"
+ *    }
  *
  */
 router.get('/:id', transactionLogController.getOne);
 
-// Expose User Router
+// Expose Transaction Log Router
 module.exports = router;

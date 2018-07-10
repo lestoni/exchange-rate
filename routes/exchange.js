@@ -37,5 +37,5 @@ const router  = new Router();
  */
 router.post('/', exchangeController.calculate);
 
-// Expose User Router
+// Expose Exchanger Router
 module.exports = router;
