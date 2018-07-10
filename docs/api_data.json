@@ -71,57 +71,65 @@
     "version": "1.0.0",
     "name": "GetTransactionLog",
     "group": "TransactionLog",
-    "description": "<p>Calcuate the equivalent exchange rate between currencies</p>",
-    "parameter": {
+    "description": "<p>Get A Transaction Log With the Given Id</p>",
+    "success": {
       "fields": {
-        "Parameter": [
+        "Success 200": [
           {
-            "group": "Parameter",
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Transaction Log Id</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "from_currency",
             "description": "<p>Currency Converting From</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "to_currency",
             "description": "<p>Currency Converting To</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Success 200",
             "type": "Number",
             "optional": false,
             "field": "amount",
             "description": "<p>Currency Amount</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request Example:",
-          "content": "{\n  \"from_currrency\": \"EUR\",\n  \"to_currency\": \"USD\",\n  \"amount\": 100.0\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
+          },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "value",
-            "description": "<p>Exchange Rate Value</p>"
+            "field": "equivalent",
+            "description": "<p>Converted Currency Equivalent</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>Created At Timestamp</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>Updated At Timestamp</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Response Example:",
-          "content": "{\n  \"equivalent\" : 129.00\n}",
+          "content": "{\n    \"id\": \"3a8a1973-c724-431d-b464-07fd9d55ab4c\",\n    \"from_currency\": \"usd\",\n    \"to_currency\": \"EUR\",\n    \"amount\": 65000,\n    \"rate\": 1.1724,\n    \"equivalent\": 55441.83,\n    \"createdAt\": \"2018-07-08T12:43:44.398Z\",\n    \"updatedAt\": \"2018-07-08T12:43:44.398Z\"\n}",
           "type": "json"
         }
       ]
@@ -136,57 +144,65 @@
     "version": "1.0.0",
     "name": "GetTransactionLogsCollection",
     "group": "TransactionLog",
-    "description": "<p>Calcuate the equivalent exchange rate between currencies</p>",
-    "parameter": {
+    "description": "<p>Get A Collection of Transaction Logs</p>",
+    "success": {
       "fields": {
-        "Parameter": [
+        "Success 200": [
           {
-            "group": "Parameter",
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Transaction Log Id</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "from_currency",
             "description": "<p>Currency Converting From</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "to_currency",
             "description": "<p>Currency Converting To</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Success 200",
             "type": "Number",
             "optional": false,
             "field": "amount",
             "description": "<p>Currency Amount</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request Example:",
-          "content": "{\n  \"from_currrency\": \"EUR\",\n  \"to_currency\": \"USD\",\n  \"amount\": 100.0\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
+          },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "value",
-            "description": "<p>Exchange Rate Value</p>"
+            "field": "equivalent",
+            "description": "<p>Converted Currency Equivalent</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>Created At Timestamp</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>Updated At Timestamp</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Response Example:",
-          "content": "{\n  \"equivalent\" : 129.00\n}",
+          "content": "[\n   {\n       \"id\": \"3a8a1973-c724-431d-b464-07fd9d55ab4c\",\n       \"from_currency\": \"usd\",\n       \"to_currency\": \"EUR\",\n       \"amount\": 65000,\n       \"rate\": 1.1724,\n       \"equivalent\": 55441.83,\n       \"createdAt\": \"2018-07-08T12:43:44.398Z\",\n       \"updatedAt\": \"2018-07-08T12:43:44.398Z\"\n   }\n]",
           "type": "json"
         }
       ]
