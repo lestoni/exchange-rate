@@ -37,7 +37,7 @@
     "koa-router": "~7.4.0",
     "koa-static": "~4.0.3",
     "koa-validate": "~1.0.7",
-    "lodash": "~4.17.10",
+    "lodash": "~4.17.21",
     "moment": "~2.22.2",
     "node-fetch": "^2.1.2",
     "pq": "0.0.3",
