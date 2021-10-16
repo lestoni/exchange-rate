@@ -39,7 +39,7 @@
     "koa-validate": "~1.0.7",
     "lodash": "~4.17.21",
     "moment": "~2.22.2",
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^2.6.1",
     "pq": "0.0.3",
     "sequelize": "^4.38.0",
     "sqlite3": "^4.0.1",
